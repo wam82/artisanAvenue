@@ -31,7 +31,8 @@ const Login = (props) => {
     
     const { data, error } = await db_client.from('users')
     .select('username, email, password')
-    .eq('username', username);
+    .eq('username', username)
+    .eq('password', password);
 
     if (data.length > 0)
     {
@@ -43,7 +44,7 @@ const Login = (props) => {
       
     } 
     else {
-      alert("This user does not exist.");
+      alert("Incorrect user information.");
     }
   }
 

@@ -13,7 +13,7 @@ const Home = (props) => {
 
   useState(() => {
     const storedUser = localStorage.getItem('user');
-    if (false && storedUser) {
+    if (storedUser) {
       setLocalUser(JSON.parse(storedUser));
     }
   }, []);
