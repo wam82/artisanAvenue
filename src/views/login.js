@@ -37,11 +37,11 @@ const Login = (props) => {
     if (data.length > 0)
     {
       console.log("Logged user");
-      const userData = { ...data[0] };
+      const logTime = new Date().getTime();
+      const userData = { ...data[0], lastLogin: logTime};
       delete userData.password;
       localStorage.setItem('user', JSON.stringify(userData));
       navigate("/");
-      
     } 
     else {
       alert("Incorrect user information.");

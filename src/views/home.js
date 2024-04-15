@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, json } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import getLocalStorageUser from '../User'
 import NavigationLinks from '../components/navigation-links'
@@ -14,7 +14,16 @@ const Home = (props) => {
   useState(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
-      setLocalUser(JSON.parse(storedUser));
+      const jsonUser = JSON.parse(storedUser);
+
+      const sessionDuration = 30 * 60 * 1000;
+
+      const lastLoginTime = new Date(jsonUser.lastLogin);
+      const expirationTime = new Date(lastLoginTime.getTime() + sessionDuration);
+      const currentTime = new Date();
+
+      if (currentTime.getTime() < expirationTime.getTime())
+        setLocalUser(jsonUser);
     }
   }, []);
 

@@ -28,10 +28,12 @@ const Register = (props) => {
     else {
       insertUserInDatabase(username, email, password);
       console.log("Created new user")
+      const logTime = new Date().getTime();
       localStorage.setItem('user', JSON.stringify(
         {
           username: username, 
           email: email, 
+          lastLogin: logTime
         }
       ));
       navigate("/")
