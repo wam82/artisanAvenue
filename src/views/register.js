@@ -4,8 +4,8 @@ import { Helmet } from 'react-helmet'
 import { createClient } from '@supabase/supabase-js'
 import NavigationLinks from '../components/navigation-links'
 import './register.css'
+import db_client from '../supabase'
 
-const db_client = createClient(process.env.REACT_APP_SUPABASE_URL, process.env.REACT_APP_SUPABASE_KEY)
 
 const Register = (props) => {
 
@@ -41,7 +41,6 @@ const Register = (props) => {
       }
     )
     console.log("Created new user")
-    
   }
 
 

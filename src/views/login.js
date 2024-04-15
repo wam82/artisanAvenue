@@ -1,12 +1,49 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
-
+import { createClient } from '@supabase/supabase-js'
 import NavigationLinks from '../components/navigation-links'
 import './login.css'
+import db_client from '../supabase'
+
 
 const Login = (props) => {
+
+
+  const navigate = useNavigate();
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+
+  const handleFormSubmit = () => {
+    // Validate the input fields here if needed
+    if (!username || !password) {
+      alert("One or more fields are empty.");
+      return;
+    }
+
+    tryLoggingUser(username, password);
+
+  };
+
+  const tryLoggingUser = async (username, password) => {
+    
+    const { data, error } = await db_client.from('users')
+    .select('username, email, password')
+    .eq('username', username);
+
+    if (data.length > 0)
+    {
+      console.log("Logged user");
+      navigate("/");
+    } 
+    else {
+      alert("This user does not exist.");
+    }
+  }
+
+
   return (
     <div className="login-container">
       <Helmet>
@@ -66,24 +103,28 @@ const Login = (props) => {
         </div>
       </header>
       <form className="login-form">
-        <span className="login-text">
-          <span>Login</span>
-          <br></br>
-        </span>
-        <input
-          type="text"
-          placeholder="Username"
-          className="login-input input"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          className="login-textinput input"
-        />
-        <button type="button" className="login-button button">
-          Submit
-        </button>
-      </form>
+      <span className="login-text">
+        <span>Login</span>
+        <br />
+      </span>
+      <input
+        type="text"
+        placeholder="Username"
+        className="login-input input"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        className="login-textinput input"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button type="button" className="login-button button" onClick={handleFormSubmit}>
+        Submit
+      </button>
+    </form>
       <footer className="login-footer">
         <div className="login-container2">
           <img
