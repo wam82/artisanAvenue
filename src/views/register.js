@@ -1,12 +1,55 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
-
+import { createClient } from '@supabase/supabase-js'
 import NavigationLinks from '../components/navigation-links'
 import './register.css'
 
+const db_client = createClient(process.env.REACT_APP_SUPABASE_URL, process.env.REACT_APP_SUPABASE_KEY)
+
 const Register = (props) => {
+
+  const navigate = useNavigate();
+
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [retypePassword, setRetypePassword] = useState('');
+
+
+  const handleFormSubmit = () => {
+    // Validate the input fields here if needed
+    if (!username || !email || !password || !retypePassword) {
+      alert("One or more fields are empty.")
+    }
+    else if (password !== retypePassword) {
+      alert("Passwords do not match.")
+    }
+    else {
+      insertUserInDatabase(username, email, password);
+      navigate("/")
+    }
+  };
+
+
+  const insertUserInDatabase = async (username, email, password) => {
+
+    const { data, error } = await db_client.from('users').insert(
+      { username: username,
+        email: email,
+        password: password 
+      }
+    )
+    console.log("Created new user")
+    
+  }
+
+
+
+
+
+
+
   return (
     <div className="register-container">
       <Helmet>
@@ -75,34 +118,42 @@ const Register = (props) => {
         </div>
       </header>
       <form className="register-form">
-        <span className="register-text">
-          <span>Register</span>
-          <br></br>
-        </span>
-        <input
-          type="text"
-          placeholder="Username"
-          className="register-input input"
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          className="register-input1 input"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          className="register-textinput input"
-        />
-        <input
-          type="password"
-          placeholder="Retype password"
-          className="register-textinput1 input"
-        />
-        <button type="button" className="register-button button">
-          Submit
-        </button>
-      </form>
+      <span className="register-text">
+        <span>Register</span>
+        <br />
+      </span>
+      <input
+        type="text"
+        placeholder="Username"
+        className="register-input input"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <input
+        type="email"
+        placeholder="Email"
+        className="register-input1 input"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        className="register-textinput input"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Retype password"
+        className="register-textinput1 input"
+        value={retypePassword}
+        onChange={(e) => setRetypePassword(e.target.value)}
+      />
+      <button type="button" className="register-button button" onClick={handleFormSubmit}>
+        Submit
+      </button>
+    </form>
       <footer className="register-footer">
         <div className="register-container2">
           <img
