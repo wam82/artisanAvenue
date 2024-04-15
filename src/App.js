@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from 'react-router-dom'
+import Test from './views/Test'
+import AuthNav from './views/auth-nav'
+import Home from './views/home'
+import Login from './views/login'
+import NotFound from './views/not-found'
+import Register from './views/register'
+import Sell from './views/sell'
+import Shop from './views/shop'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route element={<Test/>} exact path = "/test" />
+        <Route element={<AuthNav/>} exact path="/auth-nav" />
+        <Route element={<Home/>} exact path="/" />
+        <Route element={<Login/>} exact path="/login" />
+        <Route element={<Register/>} exact path="/register" />
+        <Route element={<Sell/>} exact path="/sell" />
+        <Route element={<Shop/>} exact path="/shop" />
+        <Route element={<NotFound/>}  path="/notfound" />
+        <Route path="*" element={<Navigate to="/notfound"/>}/>
+        </Routes>
+    </Router>
   );
 }
 
