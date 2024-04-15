@@ -27,6 +27,13 @@ const Register = (props) => {
     }
     else {
       insertUserInDatabase(username, email, password);
+      console.log("Created new user")
+      localStorage.setItem('user', JSON.stringify(
+        {
+          username: username, 
+          email: email, 
+        }
+      ));
       navigate("/")
     }
   };
@@ -37,15 +44,10 @@ const Register = (props) => {
     const { data, error } = await db_client.from('users').insert(
       { username: username,
         email: email,
-        password: password 
+        password: password
       }
     )
-    console.log("Created new user")
   }
-
-
-
-
 
 
 

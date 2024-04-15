@@ -36,7 +36,11 @@ const Login = (props) => {
     if (data.length > 0)
     {
       console.log("Logged user");
+      const userData = { ...data[0] };
+      delete userData.password;
+      localStorage.setItem('user', JSON.stringify(userData));
       navigate("/");
+      
     } 
     else {
       alert("This user does not exist.");

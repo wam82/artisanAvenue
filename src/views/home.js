@@ -9,6 +9,12 @@ import './home.css'
 import '../style.css'
 
 const Home = (props) => {
+
+
+  const storedUser = localStorage.getItem('user');
+  console.log(storedUser)
+
+
   return (
     <div className="home-container">
       <Helmet>
