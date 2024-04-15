@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-
 import { Helmet } from 'react-helmet'
-
+import getLocalStorageUser from '../User'
 import NavigationLinks from '../components/navigation-links'
 import GalleryCard3 from '../components/gallery-card3'
 import './home.css'
@@ -10,9 +9,14 @@ import '../style.css'
 
 const Home = (props) => {
 
+  const [localUser, setLocalUser] = useState(null);
 
-  const storedUser = localStorage.getItem('user');
-  console.log(storedUser)
+  useState(() => {
+    const storedUser = localStorage.getItem('user');
+    if (false && storedUser) {
+      setLocalUser(JSON.parse(storedUser));
+    }
+  }, []);
 
 
   return (
@@ -76,40 +80,12 @@ const Home = (props) => {
       <div className="home-hero">
         <div className="home-container02">
           <h1 className="home-text">Discover true craftsmanship</h1>
-          <span className="home-text01">
-            <span>
-              <span>
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: ' ',
-                  }}
-                />
-              </span>
-              <span>
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: ' ',
-                  }}
-                />
-              </span>
-            </span>
-            <span>
-              <span>
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: ' ',
-                  }}
-                />
-              </span>
-              <span>
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: ' ',
-                  }}
-                />
-              </span>
-            </span>
-          </span>
+          <p>
+                  {localUser && (
+                    <span>
+                      Welcome, {localUser.username}!
+                    </span>)}
+          </p>
           <div className="home-btn-group1">
             <Link to="/shop" className="home-navlink1 button">
               Start Shopping
