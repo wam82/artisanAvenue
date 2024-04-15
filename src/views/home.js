@@ -69,7 +69,7 @@ const Home = (props) => {
       </header>
       <div className="home-hero">
         <div className="home-container02">
-          <h1 className="home-text">Discover true craftsmanship</h1>
+          <h1 className="home-text">Discover true uiuuuuuuuucraftsmanship</h1>
           <span className="home-text01">
             <span>
               <span>
