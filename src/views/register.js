@@ -10,8 +10,8 @@ const Register = (props) => {
   return (
     <div className="register-container">
       <Helmet>
-        <title>Register - Grown Zany Jackal</title>
-        <meta property="og:title" content="Register - Grown Zany Jackal" />
+        <title>Register - Artisan Avenue</title>
+        <meta property="og:title" content="Register - Artisan Avenue" />
       </Helmet>
       <header data-role="Header" className="register-header">
         <Link to="/" className="register-navlink">

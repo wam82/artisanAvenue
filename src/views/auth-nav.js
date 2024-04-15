@@ -10,8 +10,8 @@ const AuthNav = (props) => {
   return (
     <div className="auth-nav-container">
       <Helmet>
-        <title>AuthNav - Grown Zany Jackal</title>
-        <meta property="og:title" content="AuthNav - Grown Zany Jackal" />
+        <title>AuthNav - Artisan Avenue</title>
+        <meta property="og:title" content="AuthNav - Artisan Avenue" />
       </Helmet>
       <header data-role="Header" className="auth-nav-header">
         <Link to="/" className="auth-nav-navlink">

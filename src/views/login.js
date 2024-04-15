@@ -10,8 +10,8 @@ const Login = (props) => {
   return (
     <div className="login-container">
       <Helmet>
-        <title>Login - Grown Zany Jackal</title>
-        <meta property="og:title" content="Login - Grown Zany Jackal" />
+        <title>Login - Artisan Avenue</title>
+        <meta property="og:title" content="Login - Artisan Avenue" />
       </Helmet>
       <header data-role="Header" className="login-header">
         <Link to="/" className="login-navlink">

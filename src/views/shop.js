@@ -11,8 +11,8 @@ const Shop = (props) => {
   return (
     <div className="shop-container">
       <Helmet>
-        <title>Shop - Grown Zany Jackal</title>
-        <meta property="og:title" content="Shop - Grown Zany Jackal" />
+        <title>Shop - Artisan Avenue</title>
+        <meta property="og:title" content="Shop - Artisan Avenue" />
       </Helmet>
       <header data-role="Header" className="shop-header">
         <Link to="/" className="shop-navlink">

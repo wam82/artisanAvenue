@@ -12,8 +12,8 @@ const Home = (props) => {
   return (
     <div className="home-container">
       <Helmet>
-        <title>Grown Zany Jackal</title>
-        <meta property="og:title" content="Grown Zany Jackal" />
+        <title>Artisan Avenue</title>
+        <meta property="og:title" content="Artisan Avenue" />
       </Helmet>
       <header data-role="Header" className="home-header">
         <Link to="/" className="home-navlink">
@@ -73,8 +73,6 @@ const Home = (props) => {
           <span className="home-text01">
             <span>
               <span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-                volutpat turpis.
                 <span
                   dangerouslySetInnerHTML={{
                     __html: ' ',
@@ -91,7 +89,6 @@ const Home = (props) => {
             </span>
             <span>
               <span>
-                Mauris luctus rutrum mi ut rhoncus. Integer in dignissim tortor.
                 <span
                   dangerouslySetInnerHTML={{
                     __html: ' ',
@@ -239,8 +236,6 @@ const Home = (props) => {
         <span className="home-text30">
           <span>
             <span>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-              volutpat turpis.
               <span
                 dangerouslySetInnerHTML={{
                   __html: ' ',
@@ -258,7 +253,6 @@ const Home = (props) => {
           <br></br>
           <span>
             <span>
-              Mauris luctus rutrum mi ut rhoncus. Integer in dignissim tortor.
               <span
                 dangerouslySetInnerHTML={{
                   __html: ' ',

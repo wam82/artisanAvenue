@@ -10,8 +10,8 @@ const Sell = (props) => {
   return (
     <div className="sell-container">
       <Helmet>
-        <title>Sell - Grown Zany Jackal</title>
-        <meta property="og:title" content="Sell - Grown Zany Jackal" />
+        <title>Sell - Artisan Avenue</title>
+        <meta property="og:title" content="Sell - Artisan Avenue" />
       </Helmet>
       <header data-role="Header" className="sell-header">
         <Link to="/" className="sell-navlink">
