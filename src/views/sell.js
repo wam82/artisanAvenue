@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import NavigationLinks from '../components/navigation-links'
 import SellForm from './SellForm'
@@ -8,23 +8,17 @@ import './sell.css'
 
 const Sell = (props) => {
 
+
   const [localUser, setLocalUser] = useState(null);
 
   useState(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       const jsonUser = JSON.parse(storedUser);
-
-      const sessionDuration = 30 * 60 * 1000;
-
-      const lastLoginTime = new Date(jsonUser.lastLogin);
-      const expirationTime = new Date(lastLoginTime.getTime() + sessionDuration);
-      const currentTime = new Date();
-
-      if (currentTime.getTime() < expirationTime.getTime())
-        setLocalUser(jsonUser);
+      setLocalUser(jsonUser);
     }
   }, []);
+
 
   const handleLogout = () => {
     if (localUser) {

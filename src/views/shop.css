@@ -1,3 +1,8 @@
+.article-card-container {
+  margin-top: var(--dl-space-space-sixunits);
+  margin-bottom: var(--dl-space-space-threeunits);
+}
+
 .shop-container {
   width: 100%;
   display: flex;
