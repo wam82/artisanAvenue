@@ -4,6 +4,10 @@ import './SellForm.css'
 const SellForm = () => {
 
 
+    const handleSubmit = () => {
+        
+    }
+
     return (
 <form className="sell-form">
   <span className="sell-text">
@@ -53,7 +57,7 @@ const SellForm = () => {
 
     />    
 
-  <button type="button" className="sell-button button">
+  <button type="button" className="sell-button button" onClick={handleSubmit}>
     Submit
   </button>
 </form>

@@ -6,15 +6,18 @@ import PropTypes from 'prop-types'
 import './navigation-links.css'
 
 const NavigationLinks = (props) => {
+
+
+
   return (
     <nav className={`navigation-links-nav ${props.rootClassName} `}>
       <Link to="/" className="navigation-links-navlink">
         {props.text}
       </Link>
-      <Link to="/shop" className="navigation-links-text">
+      <Link to={props.user ? '/shop' : props.from} className="navigation-links-text" onClick={() =>{if (!props.user) alert("You must login to access this page.")}}>
         {props.text111}
       </Link>
-      <Link to="/sell" className="navigation-links-text1">
+      <Link to={props.user ? '/sell' : props.from} className="navigation-links-text1" onClick={() =>{if (!props.user) alert("You must login to access this page.")}}>
         {props.text11}
       </Link>
     </nav>

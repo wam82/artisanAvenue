@@ -49,7 +49,7 @@ const Home = (props) => {
           />
         </Link>
         <div className="home-nav"></div>
-        <NavigationLinks rootClassName="rootClassName10"></NavigationLinks>
+        <NavigationLinks user={localUser} from="/" rootClassName="rootClassName10"></NavigationLinks>
         
         { localUser ? 
         <div className="auth-nav-container1">
@@ -117,7 +117,7 @@ const Home = (props) => {
                     </span>)}
           </p>
           <div className="home-btn-group1">
-            <Link to="/shop" className="home-navlink1 button">
+            <Link to={localUser ? '/shop' : '/'} className="home-navlink1 button" onClick={() => {if (!localUser) alert("You must login to access this page.")}}>
               Start Shopping
             </Link>
             <a href="#Philosophy" className="home-link button">

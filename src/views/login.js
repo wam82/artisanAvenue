@@ -65,7 +65,7 @@ const Login = (props) => {
           />
         </Link>
         <div className="login-nav"></div>
-        <NavigationLinks rootClassName="rootClassName14"></NavigationLinks>
+        <NavigationLinks from="/login" rootClassName="rootClassName10"></NavigationLinks>
         <div className="login-btn-group">
           <Link to="/login" className="login-login button">
             Login

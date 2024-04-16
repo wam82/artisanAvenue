@@ -30,7 +30,6 @@ const Shop = (props) => {
   const handleLogout = () => {
     if (localUser) {
       localStorage.removeItem('user');
-      window.location.reload();
     }
   }
 
@@ -50,11 +49,11 @@ const Shop = (props) => {
           />
         </Link>
         <div className="shop-nav"></div>
-        <NavigationLinks rootClassName="rootClassName8"></NavigationLinks>
+        <NavigationLinks user={localUser} from="/shop" rootClassName="rootClassName10"></NavigationLinks>
         
         { localUser ? 
         <div className="auth-nav-container1">
-          <Link to='/shop' className="auth-nav-login Link button" onClick={handleLogout}>
+          <Link to='/' className="auth-nav-login Link button" onClick={handleLogout}>
             Logout
           </Link>
           <div style={{backgroundColor: localUser.color}}

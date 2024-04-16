@@ -29,7 +29,6 @@ const Sell = (props) => {
   const handleLogout = () => {
     if (localUser) {
       localStorage.removeItem('user');
-      window.location.reload();
     }
   }
 
@@ -49,7 +48,7 @@ const Sell = (props) => {
           />
         </Link>
         <div className="sell-nav"></div>
-        <NavigationLinks rootClassName="rootClassName16"></NavigationLinks>
+        <NavigationLinks user={localUser} from="/sell" rootClassName="rootClassName10"></NavigationLinks>
 
         { localUser ? 
         <div className="auth-nav-container1">

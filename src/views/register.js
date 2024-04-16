@@ -72,7 +72,7 @@ const Register = (props) => {
           />
         </Link>
         <div className="register-nav"></div>
-        <NavigationLinks rootClassName="rootClassName12"></NavigationLinks>
+        <NavigationLinks from="/register" rootClassName="rootClassName10"></NavigationLinks>
         <div className="register-btn-group">
           <Link to="/login" className="register-login button">
             Login
