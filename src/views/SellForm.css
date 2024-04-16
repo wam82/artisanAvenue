@@ -160,6 +160,7 @@ label {
     margin-top: var(--dl-space-space-unit);
     font-family: "Inter";
     margin-left: var(--dl-space-space-unit);
+    width: 200px;
   }
   .sell-textinput1 {
     margin-top: var(--dl-space-space-unit);

@@ -14,7 +14,7 @@ const SellForm = () => {
     type="text"
     id="title"
     placeholder="Enter the name of your article"
-    className="sell-input input"
+    className="sell-textinput input"
     />
     <label htmlFor="description">Description</label>
     <input
