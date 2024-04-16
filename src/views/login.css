@@ -155,7 +155,7 @@
   justify-content: space-between;
   background-color: #76885b;
 
-  flex: 1; /* Allow content div to expand to fill remaining vertical space */
+  flex: 1;
   margin-top: auto;
 
 }
