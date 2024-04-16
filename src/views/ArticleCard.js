@@ -61,13 +61,13 @@ const ArticleCard = (props) => {
                         readOnly="true"
                         value={article.description}
                         className="sell-input1 input"
-                        style={{ width: "100%", height: "50%", resize: "none", pointerEvents: "none" }}
+                        style={{ width: "100%", height: "50%", resize: "none", pointerEvents: "none", borderStyle: "dotted"}}
                         />
                 </div>
             </div>
             <div style={{marginRight: "10%"}}>
                 <div style={{display: "flex", justifyContent: "center"}}>
-                    <img src={article.image_link} style={{borderRadius: "10%", width: "200px", boxShadow: "rgba(0, 0, 0, 0.5) 0px 3px 8px", border: "1px solid rgba(0,0,0,0.7)"}}/>
+                    <img src={article.image_link} style={{borderRadius: "15px", width: "200px", boxShadow: "rgba(0, 0, 0, 0.5) 0px 3px 8px", border: "1px solid rgba(0,0,0,0.7)"}}/>
                 </div>
             </div>
         </div>

@@ -107,6 +107,25 @@ const Shop = (props) => {
           </div>
         </div>
       </header>
+      <div style={{marginTop: "var(--dl-space-space-threeunits)", display: "flex", justifyContent: "space-between", alignItems: "center",width: "50%"}}>
+        <div className='shop-search-bar' style={{display: "flex", alignItems: "center", width: "80%"}}>
+        &#x1F50D;
+          <input style={{margin: 0, marginLeft: "10px", width: "100%", borderRadius: "10px"}}
+            type="text"
+            placeholder="Search in the catalog"
+            className="register-input input"/>       
+        </div>
+        <div className='shop-categories'>
+          <select id="categories" name="categories" className='input'>
+            <option value="woodwork">Categories</option>
+            <option value="woodwork">Woodwork</option>
+            <option value="pottery">Pottery</option>
+            <option value="glassware">Glassware</option>
+            <option value="textiles">Textiles</option>
+            <option value="jewelry">Jewelry</option>
+            </select>
+          </div>
+      </div>
       <div className='article-card-container'>
         { articles ? articles.map(article => (
             <ArticleCard content={article}/>
