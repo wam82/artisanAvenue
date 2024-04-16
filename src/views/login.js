@@ -7,6 +7,12 @@ import './login.css'
 import db_client from '../supabase'
 
 
+// This page is the login page
+// Users may enter their credentials to log into their account
+
+// Logging in gives the user access to the shopping and selling pages,
+// and displays a logout and image on the nav bar
+
 const Login = (props) => {
 
 
@@ -16,7 +22,9 @@ const Login = (props) => {
   const [password, setPassword] = useState('');
 
 
+  // Upon logging in, verify the information of the user
   const handleFormSubmit = () => {
+
     // Validate the input fields here if needed
     if (!username || !password) {
       alert("One or more fields are empty.");
@@ -27,22 +35,26 @@ const Login = (props) => {
 
   };
 
+  // Calling the supabase postgreSQL instance to verify user
+  // Very basic auth stuff
   const tryLoggingUser = async (username, password) => {
     
+    // Query searching for user
     const { data, error } = await db_client.from('users')
     .select('username, email, password, color')
     .eq('username', username)
     .eq('password', password);
 
+    // If there is a user with this pair of  info
     if (data.length > 0)
     {
+      // Log the user and update local storage
       console.log("Logged user");
       const logTime = new Date().getTime();
       const userData = { ...data[0], lastLogin: logTime};
       delete userData.password;
       localStorage.setItem('user', JSON.stringify(userData));
       navigate("/");
-      
     } 
     else {
       alert("Incorrect user information.");

@@ -8,24 +8,33 @@ import ArticleCard from './ArticleCard'
 import db_client from '../supabase'
 
 
+// This is the shopping page
+
+// Cards from the database are displayed here, users can see the article cards
+// Users can buy articles that will be redirected to their email
+
+// Users must be logged in to be here
+
 const Shop = (props) => {
 
   const [localUser, setLocalUser] = useState(null);
   const [articles, setArticles] = useState(null);
 
 
+  // Fetch user from local storage for auth
   useState(async () => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       const jsonUser = JSON.parse(storedUser);
       setLocalUser(jsonUser);
 
-      // Get all articles
+      // Get all articles from database
       const { data, error } = await db_client.from('articles').select();
       setArticles(data);
     }
   }, []);
 
+  // Logout function 
   const handleLogout = () => {
     if (localUser) {
       localStorage.removeItem('user');

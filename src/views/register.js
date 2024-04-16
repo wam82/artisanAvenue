@@ -6,6 +6,12 @@ import NavigationLinks from '../components/navigation-links'
 import './register.css'
 import db_client from '../supabase'
 
+// This is the register page
+// Users can enter a username, email and password
+// Upon registering, database is updated and user is redirected to home
+
+// Users are protected from entering a bad password
+// that they will not remember using a 'Retype password' strategy
 
 const Register = (props) => {
 
@@ -17,20 +23,28 @@ const Register = (props) => {
   const [retypePassword, setRetypePassword] = useState('');
 
 
+  // On clicking "Submit" to finish register process
   const handleFormSubmit = () => {
-    // Validate the input fields here if needed
+
+    // Validate if the user entered an input
     if (!username || !email || !password || !retypePassword) {
       alert("One or more fields are empty.")
     }
+    // Make sure the user types the right password
     else if (password !== retypePassword) {
       alert("Passwords do not match.")
     }
     else {
+      // Set a color for the profile picture
       const colors = ["#9BB0C1", "#51829B", "#F2C18D", "#B784B7", "#F6F193", "#E1F0DA", "#F7DCB9", "#B3C8CF", "#F1EEDC", "#F1EF99", "#B3A398", "#AC87C5"];
       const color = colors[Math.floor(Math.random() * colors.length)];
+      
+      // Inserting user row in database with necessary info
       insertUserInDatabase(username, email, password, color);
       console.log("Created new user")
       const logTime = new Date().getTime();
+
+      // Authenticate the user locally so it persists through the website
       localStorage.setItem('user', JSON.stringify(
         {
           username: username, 
@@ -39,11 +53,14 @@ const Register = (props) => {
           color: color
         } 
       ));
+
+      // Go back to home page
       navigate("/");
     }
   };
 
 
+  // Query the database to insert the user
   const insertUserInDatabase = async (username, email, password, color) => {
 
     const { data, error } = await db_client.from('users').insert(

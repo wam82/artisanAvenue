@@ -5,12 +5,21 @@ import NavigationLinks from '../components/navigation-links'
 import SellForm from './SellForm'
 import './sell.css'
 
+// This is the sell page
+// Users can upload their own article for selling
+
+// Information like a title, a description, image link, quantity, value, etc. are required
+// Upon submitting the database is updated and the new article will show in the shop page
+
+// Users must be logged in to be here
+
 
 const Sell = (props) => {
 
 
   const [localUser, setLocalUser] = useState(null);
 
+  // Fetch local user from local storage
   useState(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
@@ -20,6 +29,7 @@ const Sell = (props) => {
   }, []);
 
 
+  // Simple logout to forget user
   const handleLogout = () => {
     if (localUser) {
       localStorage.removeItem('user');

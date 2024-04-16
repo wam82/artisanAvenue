@@ -3,6 +3,12 @@ import db_client from '../supabase'
 import './SellForm.css'
 
 
+// This is the sell form
+
+// See Sell.js for more comments
+
+// This is the component for the form
+
 const SellForm = (props) => {
 
     const [formData, setFormData] = useState({
@@ -14,13 +20,14 @@ const SellForm = (props) => {
         username: props.user.username
       });
 
+      // Dynamically change the values from inputs
       const handleChange = (event) => {
         const { id, value } = event.target;
         setFormData({ ...formData, [id]: value });
       };
     
 
-
+    // Checking if any value is null, otherwise alert and prevent sending
     const handleSubmit = () => {
         if (!formData.title || !formData.description  || !formData.quantity || !formData.value || !formData.image_link) {
             alert("One or more fields are empty.");
@@ -30,6 +37,7 @@ const SellForm = (props) => {
         insertArticle()
     }
 
+    // Query to insert into database
     const insertArticle = async () => {
         const { data, error } = await db_client
         .from('articles')

@@ -4,7 +4,13 @@ import './SellForm.css'
 import './ArticleCard.css'
 
 
+// The article card component is a card with the shopping information of 
+// each article that is available in the store, with name, value, available
+// quantity, an image, and inputs to buy each article.
 
+
+// Weirdly enough, <hr> does not work
+// Here's an alternative
 const CustomHR = () => {
     return (
     <div style={{
@@ -23,10 +29,12 @@ const CustomHR = () => {
 
 const ArticleCard = (props) => {
 
+    // From parent component
     const article = props.content;
     const [quantity, setQuantity] = useState(null);
 
 
+    // Basic response when buying, needs a quantity though
     const handleSubmit = () => {
         if (quantity)
         {
@@ -49,9 +57,7 @@ const ArticleCard = (props) => {
         </div>
       </div>
       <CustomHR />
-
       <div style={{width: "100%"}}>
-
         <div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", marginTop: "var(--dl-space-space-unit)"}}>
             <div style={{display:"flex", flexDirection: "row", width: "50%"}}>
                 <div>
@@ -87,15 +93,12 @@ const ArticleCard = (props) => {
                     onChange={(e) => setQuantity(e.target.value)}  // Handle input change
                 />
             </div>
-
             <button type="button" className="sell-button button" onClick={handleSubmit}>
                 Buy
             </button>
         </div>
       </div>
-
-
-    </form>
+</form>
     )
 }
 

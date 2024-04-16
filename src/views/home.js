@@ -6,10 +6,16 @@ import GalleryCard3 from '../components/gallery-card3'
 import './home.css'
 import '../style.css'
 
+// This is the home page where the motivation of the website is displayed
+
+// Not required to be logged in to view homepage
+
 const Home = (props) => {
 
   const [localUser, setLocalUser] = useState(null);
 
+  // Fetching the local user from storage
+  // This keeps you authenticated when changing views
   useState(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
@@ -18,6 +24,7 @@ const Home = (props) => {
     }
   }, []);
 
+  // Upon clicking on logout, forget about the user
   const handleLogout = () => {
     if (localUser) {
       localStorage.removeItem('user');
