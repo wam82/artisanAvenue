@@ -102,7 +102,7 @@ const Sell = (props) => {
         </div>
       </header>
       <div>
-        <SellForm />
+        <SellForm user={localUser} />
       </div>
       <footer className="sell-footer">
         <div className="sell-container3">
