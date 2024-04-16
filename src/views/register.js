@@ -26,29 +26,31 @@ const Register = (props) => {
       alert("Passwords do not match.")
     }
     else {
-      insertUserInDatabase(username, email, password);
+      const colors = ["#9BB0C1", "#51829B", "#F2C18D", "#B784B7", "#F6F193", "#E1F0DA", "#F7DCB9", "#B3C8CF", "#F1EEDC", "#F1EF99", "#B3A398", "#AC87C5"];
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      insertUserInDatabase(username, email, password, color);
       console.log("Created new user")
       const logTime = new Date().getTime();
-      const colors = ["#9BB0C1", "#51829B", "#F2C18D", "#B784B7", "#F6F193", "#E1F0DA"];
       localStorage.setItem('user', JSON.stringify(
         {
           username: username, 
           email: email, 
           lastLogin: logTime,
-          color: colors[Math.floor(Math.random() * colors.length)]
-        }
+          color: color
+        } 
       ));
       navigate("/");
     }
   };
 
 
-  const insertUserInDatabase = async (username, email, password) => {
+  const insertUserInDatabase = async (username, email, password, color) => {
 
     const { data, error } = await db_client.from('users').insert(
       { username: username,
         email: email,
-        password: password
+        password: password,
+        color: color
       }
     )
   }

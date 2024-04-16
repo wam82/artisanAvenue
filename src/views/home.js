@@ -56,7 +56,7 @@ const Home = (props) => {
           <Link to='/' className="auth-nav-login Link button" onClick={handleLogout}>
             Logout
           </Link>
-          <div
+          <div style={{backgroundColor: localUser.color}}
             className="auth-nav-image1"
           ><p>{localUser.username[0]}</p></div>
         </div>

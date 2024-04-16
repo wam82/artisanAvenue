@@ -30,7 +30,7 @@ const Login = (props) => {
   const tryLoggingUser = async (username, password) => {
     
     const { data, error } = await db_client.from('users')
-    .select('username, email, password')
+    .select('username, email, password, color')
     .eq('username', username)
     .eq('password', password);
 
