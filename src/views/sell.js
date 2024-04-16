@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-
 import { Helmet } from 'react-helmet'
-
 import NavigationLinks from '../components/navigation-links'
+import SellForm from './SellForm'
 import './sell.css'
+
 
 const Sell = (props) => {
 
@@ -102,7 +102,9 @@ const Sell = (props) => {
           </div>
         </div>
       </header>
-      <div className="sell-container2"></div>
+      <div>
+        <SellForm />
+      </div>
       <footer className="sell-footer">
         <div className="sell-container3">
           <img
