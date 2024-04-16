@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Helmet } from 'react-helmet'
@@ -7,6 +7,33 @@ import NavigationLinks from '../components/navigation-links'
 import './sell.css'
 
 const Sell = (props) => {
+
+  const [localUser, setLocalUser] = useState(null);
+
+  useState(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      const jsonUser = JSON.parse(storedUser);
+
+      const sessionDuration = 30 * 60 * 1000;
+
+      const lastLoginTime = new Date(jsonUser.lastLogin);
+      const expirationTime = new Date(lastLoginTime.getTime() + sessionDuration);
+      const currentTime = new Date();
+
+      if (currentTime.getTime() < expirationTime.getTime())
+        setLocalUser(jsonUser);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    if (localUser) {
+      localStorage.removeItem('user');
+      window.location.reload();
+    }
+  }
+
+
   return (
     <div className="sell-container">
       <Helmet>
@@ -14,7 +41,7 @@ const Sell = (props) => {
         <meta property="og:title" content="Sell - Artisan Avenue" />
       </Helmet>
       <header data-role="Header" className="sell-header">
-        <Link to="/" className="sell-navlink">
+        <Link to='/sell' className="sell-navlink">
           <img
             alt="image"
             src="/357project-removebg-preview-200h.png"
@@ -23,19 +50,29 @@ const Sell = (props) => {
         </Link>
         <div className="sell-nav"></div>
         <NavigationLinks rootClassName="rootClassName16"></NavigationLinks>
-        <div className="sell-btn-group">
-          <Link to="/login" className="sell-login button">
+
+        { localUser ? 
+        <div className="auth-nav-container1">
+          <Link to='/' className="auth-nav-login Link button" onClick={handleLogout}>
+            Logout
+          </Link>
+          <div
+            className="auth-nav-image1"
+          ><p>{localUser.username[0]}</p></div>
+        </div>
+        
+        :
+
+        <div className="home-btn-group">
+          <Link to="/login" className="home-login button">
             Login
           </Link>
-          <Link to="/register" className="sell-register button">
+          <Link to="/register" className="home-register button">
             Register
           </Link>
         </div>
-        <div data-role="BurgerMenu" className="sell-burger-menu">
-          <svg viewBox="0 0 1024 1024" className="sell-icon">
-            <path d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"></path>
-          </svg>
-        </div>
+        }
+
         <div data-role="MobileMenu" className="sell-mobile-menu">
           <div className="sell-nav1">
             <div className="sell-container1">

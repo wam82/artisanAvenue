@@ -29,14 +29,16 @@ const Register = (props) => {
       insertUserInDatabase(username, email, password);
       console.log("Created new user")
       const logTime = new Date().getTime();
+      const colors = ["#9BB0C1", "#51829B", "#F2C18D", "#B784B7", "#F6F193", "#E1F0DA"];
       localStorage.setItem('user', JSON.stringify(
         {
           username: username, 
           email: email, 
-          lastLogin: logTime
+          lastLogin: logTime,
+          color: colors[Math.floor(Math.random() * colors.length)]
         }
       ));
-      navigate("/")
+      navigate("/");
     }
   };
 

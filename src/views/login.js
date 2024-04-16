@@ -42,6 +42,7 @@ const Login = (props) => {
       delete userData.password;
       localStorage.setItem('user', JSON.stringify(userData));
       navigate("/");
+      
     } 
     else {
       alert("Incorrect user information.");

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, json } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import getLocalStorageUser from '../User'
 import NavigationLinks from '../components/navigation-links'
@@ -27,6 +27,12 @@ const Home = (props) => {
     }
   }, []);
 
+  const handleLogout = () => {
+    if (localUser) {
+      localStorage.removeItem('user');
+      window.location.reload();
+    }
+  }
 
   return (
     <div className="home-container">
@@ -44,6 +50,19 @@ const Home = (props) => {
         </Link>
         <div className="home-nav"></div>
         <NavigationLinks rootClassName="rootClassName10"></NavigationLinks>
+        
+        { localUser ? 
+        <div className="auth-nav-container1">
+          <Link to='/' className="auth-nav-login Link button" onClick={handleLogout}>
+            Logout
+          </Link>
+          <div
+            className="auth-nav-image1"
+          ><p>{localUser.username[0]}</p></div>
+        </div>
+        
+        :
+
         <div className="home-btn-group">
           <Link to="/login" className="home-login button">
             Login
@@ -52,6 +71,8 @@ const Home = (props) => {
             Register
           </Link>
         </div>
+        }
+
         <div data-role="BurgerMenu" className="home-burger-menu">
           <svg viewBox="0 0 1024 1024" className="home-icon">
             <path d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"></path>

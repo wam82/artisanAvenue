@@ -65,6 +65,12 @@
   border-color: var(--dl-color-gray-black);
   border-width: 1px;
   border-radius: 50%;
+  background-color: #FFE6E6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight:bold;
+  font-size: larger;
 }
 .auth-nav-burger-menu {
   display: none;
