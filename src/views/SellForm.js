@@ -55,7 +55,7 @@ const SellForm = (props) => {
       />
       
       <label htmlFor="description">Description</label>
-      <textarea
+      <input
         id="description"
         placeholder="Enter a description for your article"
         className="sell-input1 input"
@@ -71,7 +71,7 @@ const SellForm = (props) => {
           id="quantity"
           placeholder="quantity"
           className="sell-input input fill-the-blank"
-          style={{ marginTop: "30px" }}
+          style={{ marginTop: "26px" }}
           value={formData.quantity}
           onChange={handleChange}
         />
