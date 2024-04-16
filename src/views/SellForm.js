@@ -27,7 +27,7 @@ const SellForm = () => {
         <div>
         <label htmlFor="quantity">Willing to sell</label>
         <input
-        type="text"
+        type="number"
         id="quantity"
         placeholder="quantity"
         className="sell-input input fill-the-blank"
@@ -35,7 +35,7 @@ const SellForm = () => {
         />
         <label htmlFor="value">articles at</label>
         <input
-        type="text"
+        type="number"
         id="value"
         placeholder="price"
         className="sell-input input fill-the-blank"

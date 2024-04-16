@@ -1,9 +1,16 @@
 .fill-the-blank {
     border: none; /* Clear the border */
     border-bottom: 1px dashed black; /* Add a dashed line at the bottom */  
-    width: 50px;
+    width: 55px;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none; /* Hide arrows on Chrome */
+  appearance: none; /* Hide arrows on other browsers */
+
+
+}
 
 label {
     margin-left: var(--dl-space-space-halfunit);
