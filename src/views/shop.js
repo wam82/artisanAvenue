@@ -34,7 +34,7 @@ const Shop = (props) => {
 
 
   return (
-    <div className="shop-container">
+    <div className="shop-container" style={{height: "100vh"}}>
       <Helmet>
         <title>Shop - Artisan Avenue</title>
         <meta property="og:title" content="Shop - Artisan Avenue" />

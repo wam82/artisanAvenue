@@ -58,7 +58,7 @@ const Register = (props) => {
 
 
   return (
-    <div className="register-container">
+    <div className="register-container" style={{height: "100vh"}}>
       <Helmet>
         <title>Register - Artisan Avenue</title>
         <meta property="og:title" content="Register - Artisan Avenue" />
@@ -124,43 +124,45 @@ const Register = (props) => {
           </div>
         </div>
       </header>
-      <form className="register-form">
-      <span className="register-text">
-        <span>Register</span>
-        <br />
-      </span>
-      <input
-        type="text"
-        placeholder="Username"
-        className="register-input input"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="email"
-        placeholder="Email"
-        className="register-input1 input"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        className="register-textinput input"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Retype password"
-        className="register-textinput1 input"
-        value={retypePassword}
-        onChange={(e) => setRetypePassword(e.target.value)}
-      />
-      <button type="button" className="register-button button" onClick={handleFormSubmit}>
-        Submit
-      </button>
-    </form>
+      <div>
+        <form className="register-form">
+        <span className="register-text">
+          <span>Register</span>
+          <br />
+        </span>
+        <input
+          type="text"
+          placeholder="Username"
+          className="register-input input"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          className="register-input1 input"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          className="register-textinput input"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Retype password"
+          className="register-textinput1 input"
+          value={retypePassword}
+          onChange={(e) => setRetypePassword(e.target.value)}
+        />
+        <button type="button" className="register-button button" onClick={handleFormSubmit}>
+          Submit
+        </button>
+      </form>
+    </div>
       <footer className="register-footer">
         <div className="register-container2">
           <img

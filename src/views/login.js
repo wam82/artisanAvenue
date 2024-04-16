@@ -51,7 +51,7 @@ const Login = (props) => {
 
 
   return (
-    <div className="login-container">
+    <div className="login-container" style={{height: "100vh"}}>
       <Helmet>
         <title>Login - Artisan Avenue</title>
         <meta property="og:title" content="Login - Artisan Avenue" />
@@ -127,7 +127,7 @@ const Login = (props) => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button type="button" className="login-button button" onClick={handleFormSubmit}>
+      <button type="button" className="login-button button" style={{marginBottom: "10px"}}onClick={handleFormSubmit}>
         Submit
       </button>
     </form>

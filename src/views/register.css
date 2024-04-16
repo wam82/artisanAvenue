@@ -107,7 +107,7 @@
 }
 .register-form {
   width: 524px;
-  height: 334px;
+  height: 320px;
   margin: var(--dl-space-space-sixunits);
   display: flex;
   align-items: flex-start;

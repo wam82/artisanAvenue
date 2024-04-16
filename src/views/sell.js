@@ -28,7 +28,7 @@ const Sell = (props) => {
 
 
   return (
-    <div className="sell-container">
+    <div className="sell-container" style={{height: "100vh"}}>
       <Helmet>
         <title>Sell - Artisan Avenue</title>
         <meta property="og:title" content="Sell - Artisan Avenue" />
