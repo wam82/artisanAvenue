@@ -2,6 +2,7 @@
     border: none; /* Clear the border */
     border-bottom: 1px dashed black; /* Add a dashed line at the bottom */  
     width: 55px;
+    border-radius: 0;
 }
 
 input[type="number"]::-webkit-inner-spin-button,

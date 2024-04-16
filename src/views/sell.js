@@ -113,7 +113,7 @@ const Sell = (props) => {
             className="sell-image2"
           />
           <nav className="sell-nav2">
-            <span className="sell-text">Design</span>
+            <span className="sell-text1">Design</span>
             <span className="sell-text1">Create</span>
             <span className="sell-text2">Refine</span>
             <span className="sell-text3">Deploy</span>
