@@ -22,6 +22,6 @@ Host to a local server
 
 * Do not try to manually type your way to these two directories without being logged in, otherwise it will lead to a blank page.  
 
-* You may register or log in with these credentials 
+* You may register or log in with these credentials  
 `Username: Admin`  
 `Password: admin`
